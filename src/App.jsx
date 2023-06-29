@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import {puppyList} from './data.js'
 
 
 function App() {
-
+  const [puppies, setPuppies] = useState(puppyList);
+  console.log("puppyList: ", puppyList);
   return (
     <>
       <div>
@@ -22,6 +24,17 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+        <div>
+        <div className="App">
+      {
+        puppies.map((puppy) => {
+             return <p key={puppy.id}>{puppy.name}</p>;
+           })
+       }
+    </div>
+  
+
+        </div>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
